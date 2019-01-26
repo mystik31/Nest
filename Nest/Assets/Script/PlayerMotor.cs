@@ -25,8 +25,9 @@ public class PlayerMotor : MonoBehaviour
 
     private void PerformRunAndJump()
     {
-        if (_rb.velocity.y < 0)
-            _rb.velocity += Vector2.up * Physics2D.gravity.y * (2.5f - 1) * Time.deltaTime;
+        Debug.Log(_rb.velocity);
+        if (_rb.velocity.y < 0.0)
+            _rb.velocity += Vector2.up * Physics2D.gravity.y * (5f - 1) * Time.deltaTime;
         else if (_rb.velocity.y > 0 && !Input.GetButton("Jump"))
             _rb.velocity += Vector2.up * Physics2D.gravity.y * (5f - 1) * Time.deltaTime;
     }
