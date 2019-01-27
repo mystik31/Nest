@@ -19,8 +19,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void RunAndJump(float x)
     {
-        if (x * _MaxSpeed * Time.deltaTime > -6 && x * _MaxSpeed * Time.deltaTime < 480)
-            _rb.velocity = new Vector2(x * _MaxSpeed * Time.deltaTime, _rb.velocity.y);
+        _rb.velocity = new Vector2(x * _MaxSpeed * Time.deltaTime, _rb.velocity.y);
     }
 
     private void PerformRunAndJump()
