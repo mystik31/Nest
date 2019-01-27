@@ -19,7 +19,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void RunAndJump(float x)
     {
-        _rb.velocity = new Vector2(x * _MaxSpeed * Time.deltaTime, _rb.velocity.y);
+        if (x * _MaxSpeed * Time.deltaTime > -6 && x * _MaxSpeed * Time.deltaTime < 480)
+            _rb.velocity = new Vector2(x * _MaxSpeed * Time.deltaTime, _rb.velocity.y);
     }
 
     private void PerformRunAndJump()
@@ -32,6 +33,11 @@ public class PlayerMotor : MonoBehaviour
         {
             _rb.velocity += Vector2.up * Physics2D.gravity.y * (5f - 1) * Time.deltaTime;
         }
+    }
+
+    public Rigidbody2D GetRigidbody()
+    {
+        return _rb;
     }
 
     private Vector2 _velocity;

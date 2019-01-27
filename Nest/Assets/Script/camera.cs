@@ -14,7 +14,8 @@ public class camera : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        if (player.transform.position.x + offset.x > -7 && player.transform.position.x + offset.x < 408.0)
+            transform.position = new Vector3(player.transform.position.x + offset.x, 10, -10);
     }
 
     public void ResetCamera()
