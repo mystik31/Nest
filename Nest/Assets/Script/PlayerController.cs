@@ -12,18 +12,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _GroundCheck;
     [SerializeField] private LayerMask _Layer;
     [SerializeField] private float _RadiusCircle;
-    public Vector3 _respawnPoint;
 
     private bool _grounded;
     private PlayerMotor _motor;
     private float _speed;
 
     void Start()
-     {
-         _motor = GetComponent<PlayerMotor>();
-         _respawnPoint = transform.position;
+    {
+        _motor = GetComponent<PlayerMotor>();
         _speed = 0;
-     }
+    }
 
      void Update()
      {
@@ -44,12 +42,4 @@ public class PlayerController : MonoBehaviour
     {
         return _speed;
     }
-
-    void OnTriggerEnter2D(Collider2D collider)
-     {
-         if (collider.tag == "FallDetector")
-         {
-            transform.position = _respawnPoint;
-         }
-     }
 }
